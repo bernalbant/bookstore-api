@@ -1,5 +1,6 @@
 package com.bookstore.model.request;
 
+import com.bookstore.validation.ValidEmail;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -22,6 +23,7 @@ public class CustomerRequest {
 
   @NotNull(message = "Email field is required")
   @Size(min = 1, message = "Email field is required")
+  @ValidEmail(message = "Email format is invalid")
   private String email;
 
   private String address;
