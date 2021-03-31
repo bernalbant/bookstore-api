@@ -1,5 +1,6 @@
 package com.bookstore.service;
 
+import com.bookstore.exception.NotFoundException;
 import com.bookstore.model.entity.Book;
 import com.bookstore.repository.BookRepository;
 import java.util.List;
@@ -27,7 +28,7 @@ public class BookServiceImpl implements BookService {
     if (book.isPresent()) {
       return book.get();
     } else {
-      throw new RuntimeException();
+      throw new NotFoundException("BOOK_NOT_FOUND_MESSAGE" + id);
     }
   }
 

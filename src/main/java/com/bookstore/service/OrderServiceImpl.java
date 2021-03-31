@@ -1,5 +1,6 @@
 package com.bookstore.service;
 
+import com.bookstore.exception.NotFoundException;
 import com.bookstore.model.entity.Order;
 import com.bookstore.model.request.OrderRequest;
 import com.bookstore.repository.OrderRepository;
@@ -31,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
     if (order.isPresent()) {
       return order.get();
     } else {
-      throw new RuntimeException();
+      throw new NotFoundException("ORDER_NOT_FOUND_MESSAGE" + id);
     }
   }
 
