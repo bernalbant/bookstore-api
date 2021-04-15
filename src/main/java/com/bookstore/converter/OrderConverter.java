@@ -22,7 +22,7 @@ public class OrderConverter {
 
   public OrderResponse convert(Order order) {
     OrderResponse orderResponse = new OrderResponse();
-//        orderResponse.setId(order.getId());
+    orderResponse.setId(order.getId());
     orderResponse.setCustomerId(order.getCustomerId());
     orderResponse.setTotalPrice(order.getTotalPrice());
     orderResponse.setOrderDate(order.getOrderDate());
