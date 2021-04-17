@@ -1,9 +1,10 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.Customer;
 import com.bookstore.model.request.CustomerRequest;
 import com.bookstore.model.response.CustomerResponse;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +31,13 @@ class CustomerConverterTest {
 
     CustomerResponse customerConversion = customerConverter.convert(customer);
 
-    Assertions.assertThat(customerConversion).isNotNull();
-    Assertions.assertThat(customerConversion.getId()).isEqualTo(1);
-    Assertions.assertThat(customerConversion.getName()).isEqualTo("Name of the customer");
-    Assertions.assertThat(customerConversion.getAddress()).isEqualTo("Address of the customer");
-    Assertions.assertThat(customerConversion.getEmail()).isEqualTo("Email of the customer");
-    Assertions.assertThat(customerConversion.getPhone()).isEqualTo("Phone of the customer");
-    Assertions.assertThat(customerConversion.getSurname()).isEqualTo("Surname of the customer");
+    assertThat(customerConversion).isNotNull();
+    assertThat(customerConversion.getId()).isEqualTo(1);
+    assertThat(customerConversion.getName()).isEqualTo("Name of the customer");
+    assertThat(customerConversion.getAddress()).isEqualTo("Address of the customer");
+    assertThat(customerConversion.getEmail()).isEqualTo("Email of the customer");
+    assertThat(customerConversion.getPhone()).isEqualTo("Phone of the customer");
+    assertThat(customerConversion.getSurname()).isEqualTo("Surname of the customer");
   }
 
   @Test
@@ -50,11 +51,11 @@ class CustomerConverterTest {
 
     Customer customer = customerConverter.convert(customerRequest);
 
-    Assertions.assertThat(customer).isNotNull();
-    Assertions.assertThat(customer.getName()).isEqualTo("Name of the customer");
-    Assertions.assertThat(customer.getAddress()).isEqualTo("Address of the customer");
-    Assertions.assertThat(customer.getEmail()).isEqualTo("Email of the customer");
-    Assertions.assertThat(customer.getPhone()).isEqualTo("Phone of the customer");
-    Assertions.assertThat(customer.getSurname()).isEqualTo("Surname of the customer");
+    assertThat(customer).isNotNull();
+    assertThat(customer.getName()).isEqualTo("Name of the customer");
+    assertThat(customer.getAddress()).isEqualTo("Address of the customer");
+    assertThat(customer.getEmail()).isEqualTo("Email of the customer");
+    assertThat(customer.getPhone()).isEqualTo("Phone of the customer");
+    assertThat(customer.getSurname()).isEqualTo("Surname of the customer");
   }
 }

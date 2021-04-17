@@ -1,11 +1,12 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.Order;
 import com.bookstore.model.response.OrderDetailResponse;
 import com.bookstore.model.response.OrderListResponse;
 import com.bookstore.model.response.OrderResponse;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -47,12 +48,12 @@ class OrderListConverterTest {
     OrderListResponse conversionOfOrderList = orderListConverter.convert(List.of(order));
 
     Mockito.verify(orderConverter).convert(order);
-    Assertions.assertThat(conversionOfOrderList).isNotNull();
+    assertThat(conversionOfOrderList).isNotNull();
     OrderResponse orderResponseList = conversionOfOrderList.getOrderResponseList().get(0);
-    Assertions.assertThat(orderResponseList.getId()).isEqualTo(1);
-    Assertions.assertThat(orderResponseList.getCustomerId()).isEqualTo(3);
-    Assertions.assertThat(orderResponseList.getOrderDate()).isEqualTo("12.02.2020");
-    Assertions.assertThat(orderResponseList.getTotalPrice()).isEqualTo(24.5);
-    Assertions.assertThat(orderResponseList.getOrderDetails()).isNotNull();
+    assertThat(orderResponseList.getId()).isEqualTo(1);
+    assertThat(orderResponseList.getCustomerId()).isEqualTo(3);
+    assertThat(orderResponseList.getOrderDate()).isEqualTo("12.02.2020");
+    assertThat(orderResponseList.getTotalPrice()).isEqualTo(24.5);
+    assertThat(orderResponseList.getOrderDetails()).isNotNull();
   }
 }

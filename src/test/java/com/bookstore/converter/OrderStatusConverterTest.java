@@ -1,5 +1,7 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.enums.OrderStatus;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,9 +23,9 @@ class OrderStatusConverterTest {
     int statusValue = 2;
 
     var orderStatus = orderStatusConverter.convert(statusValue);
-    Assertions.assertThat(orderStatus).isNotNull();
-    Assertions.assertThat(orderStatus.getValue()).isEqualTo(2);
-    Assertions.assertThat(orderStatus).isEqualTo(OrderStatus.COMPLETED);
+    assertThat(orderStatus).isNotNull();
+    assertThat(orderStatus.getValue()).isEqualTo(2);
+    assertThat(orderStatus).isEqualTo(OrderStatus.COMPLETED);
   }
 
   @Test
@@ -31,7 +33,7 @@ class OrderStatusConverterTest {
     var orderStatusType = OrderStatus.COMPLETED;
 
     var orderStatusValue = orderStatusConverter.convert(orderStatusType);
-    Assertions.assertThat(orderStatusValue).isNotNull();
-    Assertions.assertThat(orderStatusValue).isEqualTo(2);
+    assertThat(orderStatusValue).isNotNull();
+    assertThat(orderStatusValue).isEqualTo(2);
   }
 }

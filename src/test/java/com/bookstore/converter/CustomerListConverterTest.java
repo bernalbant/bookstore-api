@@ -1,10 +1,11 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.Customer;
 import com.bookstore.model.response.CustomerListResponse;
 import com.bookstore.model.response.CustomerResponse;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -44,14 +45,14 @@ class CustomerListConverterTest {
     CustomerListResponse conversionOfCustomerList = customerListConverter.convert(List.of(customer));
 
     Mockito.verify(customerConverter).convert(customer);
-    Assertions.assertThat(conversionOfCustomerList).isNotNull();
+    assertThat(conversionOfCustomerList).isNotNull();
 
     CustomerResponse customerResponseList = conversionOfCustomerList.getCustomerResponseList().get(0);
-    Assertions.assertThat(customerResponseList.getId()).isEqualTo(customer.getId());
-    Assertions.assertThat(customerResponseList.getSurname()).isEqualTo(customer.getSurname());
-    Assertions.assertThat(customerResponseList.getPhone()).isEqualTo(customer.getPhone());
-    Assertions.assertThat(customerResponseList.getEmail()).isEqualTo(customer.getEmail());
-    Assertions.assertThat(customerResponseList.getAddress()).isEqualTo(customer.getAddress());
-    Assertions.assertThat(customerResponseList.getName()).isEqualTo(customer.getName());
+    assertThat(customerResponseList.getId()).isEqualTo(customer.getId());
+    assertThat(customerResponseList.getSurname()).isEqualTo(customer.getSurname());
+    assertThat(customerResponseList.getPhone()).isEqualTo(customer.getPhone());
+    assertThat(customerResponseList.getEmail()).isEqualTo(customer.getEmail());
+    assertThat(customerResponseList.getAddress()).isEqualTo(customer.getAddress());
+    assertThat(customerResponseList.getName()).isEqualTo(customer.getName());
   }
 }

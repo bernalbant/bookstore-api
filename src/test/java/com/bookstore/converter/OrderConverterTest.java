@@ -1,12 +1,13 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.Order;
 import com.bookstore.model.entity.OrderDetail;
 import com.bookstore.model.enums.OrderStatus;
 import com.bookstore.model.response.OrderDetailResponse;
 import com.bookstore.model.response.OrderResponse;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -60,17 +61,17 @@ class OrderConverterTest {
     OrderResponse orderResponseConversion = orderConverter.convert(order);
 
     Mockito.verify(orderDetailConverter).convert(orderDetail);
-    Assertions.assertThat(orderResponseConversion).isNotNull();
-    Assertions.assertThat(orderResponseConversion.getId()).isEqualTo(1);
-    Assertions.assertThat(orderResponseConversion.getCustomerId()).isEqualTo(12);
-    Assertions.assertThat(orderResponseConversion.getTotalPrice()).isEqualTo(25.2);
-    Assertions.assertThat(orderResponseConversion.getOrderDate()).isEqualTo("11.02.2020");
-    Assertions.assertThat(orderResponseConversion.getStatus()).isEqualTo("COMPLETED");
+    assertThat(orderResponseConversion).isNotNull();
+    assertThat(orderResponseConversion.getId()).isEqualTo(1);
+    assertThat(orderResponseConversion.getCustomerId()).isEqualTo(12);
+    assertThat(orderResponseConversion.getTotalPrice()).isEqualTo(25.2);
+    assertThat(orderResponseConversion.getOrderDate()).isEqualTo("11.02.2020");
+    assertThat(orderResponseConversion.getStatus()).isEqualTo("COMPLETED");
 
     OrderDetailResponse orderDetailConversionResponse = orderResponseConversion.getOrderDetails().get(0);
-    Assertions.assertThat(orderDetailConversionResponse).isNotNull();
-    Assertions.assertThat(orderDetailConversionResponse.getPrice()).isEqualTo(11.5);
-    Assertions.assertThat(orderDetailConversionResponse.getCount()).isEqualTo(12);
-    Assertions.assertThat(orderDetailConversionResponse.getBookId()).isEqualTo(1);
+    assertThat(orderDetailConversionResponse).isNotNull();
+    assertThat(orderDetailConversionResponse.getPrice()).isEqualTo(11.5);
+    assertThat(orderDetailConversionResponse.getCount()).isEqualTo(12);
+    assertThat(orderDetailConversionResponse.getBookId()).isEqualTo(1);
   }
 }

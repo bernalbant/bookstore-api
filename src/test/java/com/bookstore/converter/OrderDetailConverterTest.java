@@ -1,8 +1,9 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.OrderDetail;
 import com.bookstore.model.response.OrderDetailResponse;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ class OrderDetailConverterTest {
 
     OrderDetailResponse orderDetailResponse = orderDetailConverter.convert(orderDetail);
 
-    Assertions.assertThat(orderDetailResponse.getBookId()).isEqualTo(4);
-    Assertions.assertThat(orderDetailResponse.getCount()).isEqualTo(8);
-    Assertions.assertThat(orderDetailResponse.getPrice()).isEqualTo(12.0);
+    assertThat(orderDetailResponse.getBookId()).isEqualTo(4);
+    assertThat(orderDetailResponse.getCount()).isEqualTo(8);
+    assertThat(orderDetailResponse.getPrice()).isEqualTo(12.0);
   }
 }

@@ -1,10 +1,11 @@
 package com.bookstore.converter;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.bookstore.model.entity.Book;
 import com.bookstore.model.response.BookListResponse;
 import com.bookstore.model.response.BookResponse;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -44,15 +45,15 @@ class BookListConverterTest {
 
     BookListResponse conversionOfBookList = bookListConverter.convert(List.of(book));
 
-    Assertions.assertThat(conversionOfBookList).isNotNull();
+    assertThat(conversionOfBookList).isNotNull();
     Mockito.verify(bookConverter).convert(book);
 
     BookResponse bookResponseList = conversionOfBookList.getBookResponses().get(0);
-    Assertions.assertThat(bookResponseList.getId()).isEqualTo(book.getId());
-    Assertions.assertThat(bookResponseList.getStock()).isEqualTo(book.getStock());
-    Assertions.assertThat(bookResponseList.getPrice()).isEqualTo(book.getPrice());
-    Assertions.assertThat(bookResponseList.getAuthor()).isEqualTo(book.getAuthor());
-    Assertions.assertThat(bookResponseList.getDescription()).isEqualTo(book.getDescription());
-    Assertions.assertThat(bookResponseList.getName()).isEqualTo(book.getName());
+    assertThat(bookResponseList.getId()).isEqualTo(book.getId());
+    assertThat(bookResponseList.getStock()).isEqualTo(book.getStock());
+    assertThat(bookResponseList.getPrice()).isEqualTo(book.getPrice());
+    assertThat(bookResponseList.getAuthor()).isEqualTo(book.getAuthor());
+    assertThat(bookResponseList.getDescription()).isEqualTo(book.getDescription());
+    assertThat(bookResponseList.getName()).isEqualTo(book.getName());
   }
 }
