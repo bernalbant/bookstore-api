@@ -30,7 +30,7 @@ class CustomerServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideCustomers")
-  public void it_should_find_all_customers(Customer customer) {
+  public void itShouldFindAllCustomers(Customer customer) {
     List<Customer> customerList = List.of(customer);
 
     Mockito.when(customerRepository.findAll()).thenReturn(customerList);
@@ -49,7 +49,7 @@ class CustomerServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideCustomers")
-  public void it_should_find_customer_by_id(Customer customer) {
+  public void itShouldFindCustomerById(Customer customer) {
     Mockito.when(customerRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(customer));
 
     Customer foundCustomer = customerService.findById(customer.getId());
@@ -66,7 +66,7 @@ class CustomerServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideExceptionCustomers")
-  public void it_should_throw_not_found_exception_when_there_are_no_any_customer(Customer customer) {
+  public void itShouldThrowNotFoundExceptionWhenThereAreNoAnyCustomer(Customer customer) {
     Mockito.when(customerRepository.findById(Mockito.anyInt())).thenReturn(Optional.empty());
 
     NotFoundException notFoundException = Assertions.catchThrowableOfType(() ->
@@ -80,7 +80,7 @@ class CustomerServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideCustomers")
-  public void it_should_save_customer(Customer customer) {
+  public void itShouldSaveCustomer(Customer customer) {
     Mockito.when(customerRepository.save(Mockito.any())).thenReturn(customer);
 
     Customer savedCustomer = customerService.save(customer);

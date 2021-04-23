@@ -29,7 +29,7 @@ class OrderServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideOrders")
-  public void it_should_find_all_orders(Order order) {
+  public void itShouldFindAllOrders(Order order) {
     List<Order> orderList = List.of(order);
 
     Mockito.when(orderRepository.findAll()).thenReturn(orderList);
@@ -53,7 +53,7 @@ class OrderServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideOrders")
-  public void it_should_find_order_by_id(Order order) {
+  public void itShouldFindOrderById(Order order) {
     Mockito.when(orderRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(order));
 
     Order foundOrder = orderService.findById(order.getId());
@@ -75,7 +75,7 @@ class OrderServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideExceptionOrders")
-  public void it_should_throw_not_found_exception_when_there_are_no_any_order(Order order) {
+  public void itShouldThrowNotFoundExceptionWhenThereAreNoAnyOrder(Order order) {
     Mockito.when(orderRepository.findById(Mockito.anyInt())).thenReturn(Optional.empty());
 
     NotFoundException notFoundException = Assertions.catchThrowableOfType(() ->
@@ -89,7 +89,7 @@ class OrderServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideOrders")
-  public void it_should_save_order(Order order) {
+  public void itShouldSaveOrder(Order order) {
     Mockito.when(orderRepository.save(Mockito.any())).thenReturn(order);
 
     Order savedOrder = orderService.save(order);

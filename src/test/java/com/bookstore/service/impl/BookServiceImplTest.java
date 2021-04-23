@@ -30,7 +30,7 @@ class BookServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideBooks")
-  public void it_should_find_all_books(Book book) {
+  public void itShouldFindAllBooks(Book book) {
     List<Book> bookList = List.of(book);
 
     Mockito.when(bookRepository.findAll()).thenReturn(bookList);
@@ -49,7 +49,7 @@ class BookServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideBooks")
-  public void it_should_find_book_by_id(Book book) {
+  public void itShouldFindBookById(Book book) {
     Mockito.when(bookRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(book));
 
     Book foundBook = bookService.findById(book.getId());
@@ -66,7 +66,7 @@ class BookServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideExceptionBooks")
-  public void it_should_throw_not_found_exception_when_there_are_no_any_book(Book book) {
+  public void itShouldThrowNotFoundExceptionWhenThereAreNoAnyBook(Book book) {
     Mockito.when(bookRepository.findById(Mockito.anyInt())).thenReturn(Optional.empty());
 
     NotFoundException notFoundException = Assertions.catchThrowableOfType(() ->
@@ -80,7 +80,7 @@ class BookServiceImplTest {
 
   @ParameterizedTest
   @MethodSource("provideBooks")
-  public void it_should_save_book(Book book) {
+  public void itShouldSaveBook(Book book) {
     Mockito.when(bookRepository.save(Mockito.any())).thenReturn(book);
 
     Book savedBook = bookService.save(book);
