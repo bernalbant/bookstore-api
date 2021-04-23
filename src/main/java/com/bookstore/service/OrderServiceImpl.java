@@ -1,5 +1,7 @@
 package com.bookstore.service;
 
+import static com.bookstore.constant.ExceptionConstant.ORDER_NOT_FOUND_MESSAGE;
+
 import com.bookstore.exception.NotFoundException;
 import com.bookstore.model.entity.Order;
 import com.bookstore.model.enums.OrderStatus;
@@ -43,7 +45,7 @@ public class OrderServiceImpl implements OrderService {
     if (order.isPresent()) {
       return order.get();
     } else {
-      throw new NotFoundException("ORDER_NOT_FOUND_MESSAGE" + id);
+      throw new NotFoundException(ORDER_NOT_FOUND_MESSAGE + id);
     }
   }
 

@@ -1,5 +1,7 @@
 package com.bookstore.service;
 
+import static com.bookstore.constant.ExceptionConstant.CUSTOMER_NOT_FOUND_MESSAGE;
+
 import com.bookstore.exception.NotFoundException;
 import com.bookstore.model.entity.Customer;
 import com.bookstore.repository.CustomerRepository;
@@ -29,7 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
     if (customer.isPresent()) {
       return customer.get();
     } else {
-      throw new NotFoundException("CUSTOMER_NOT_FOUND_MESSAGE" + id);
+      throw new NotFoundException(CUSTOMER_NOT_FOUND_MESSAGE + id);
     }
   }
 

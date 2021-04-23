@@ -1,6 +1,8 @@
 package com.bookstore.utils;
 
 
+import static com.bookstore.constant.ExceptionConstant.INSUFFICIENT_STOCK_MESSAGE;
+
 import com.bookstore.exception.InsufficientStockException;
 import com.bookstore.model.entity.Book;
 
@@ -14,6 +16,6 @@ public class StockUtil {
     if (bookStock >= qty) {
       return bookStock - qty;
     }
-    throw new InsufficientStockException("INSUFFICIENT_STOCK_MESSAGE");
+    throw new InsufficientStockException(INSUFFICIENT_STOCK_MESSAGE);
   }
 }
