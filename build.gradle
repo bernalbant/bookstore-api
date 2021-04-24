@@ -30,6 +30,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.1'
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+	implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
 
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.1'
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.1'
