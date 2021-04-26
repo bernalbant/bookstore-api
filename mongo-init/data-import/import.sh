@@ -9,6 +9,6 @@ do
    ls -1 ${folder}/*.json | sed 's/.json$//' | while read col; do 
         filename=${col#$folder}
         echo "Read folder ${folder#initpattern} and file .${filename}.json" 
-	mongoimport --host mongodb --db ReadingIsGood --collection ${filename#$folderpattern} --type json --file ${col}.json --jsonArray
+	mongoimport --host mongodb --db BookStore --collection ${filename#$folderpattern} --type json --file ${col}.json --jsonArray
    done
 done

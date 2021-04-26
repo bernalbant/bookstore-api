@@ -1,3 +1,3 @@
 spring.data.mongodb:
-  database: ReadingIsGood
+  database: BookStore
   uri: mongodb://mongodb:27017
